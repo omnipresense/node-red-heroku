@@ -16,7 +16,6 @@
 
 var path = require("path");
 var when = require("when");
-var pgutil = require('./pgutil');
 
 process.env.NODE_RED_HOME = __dirname;
 
@@ -44,8 +43,6 @@ var settings = module.exports = {
     httpStatic: path.join(__dirname,"public"),
 
     functionGlobalContext: { },
-
-    storageModule: require("./pgstorage"),
 
     httpNodeCors: {
         origin: "*",
@@ -77,6 +74,3 @@ if (process.env.NODE_RED_USERNAME && process.env.NODE_RED_PASSWORD) {
     }
 }
 
-settings.pgAppname = 'nodered';
-pgutil.initPG();
-pgutil.createTable();
